@@ -1,0 +1,17 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  config.vm.define :dockerbase do | v |
+    v.vm.box = "ubuntu/wily64"
+    v.vm.network :private_network, ip: "192.168.33.79"
+  end
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--vram", 16]
+    vb.customize ["modifyvm", :id, "--memory", "2048"]
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    vb.gui = false
+  end
+  config.vm.provision "shell", run: "always",  :path => "bootstrap.sh"
+
+end

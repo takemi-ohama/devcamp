@@ -1,0 +1,8 @@
+.idea
+.vagrant
+src/*
+.ssh/*
+docker/*/.ssh/*
+config.vm.provision
+!.gitkeep
+!.gitignore
