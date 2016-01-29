@@ -2,7 +2,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.define :dockerbase do | v |
+  config.vm.define :base do | v |
     v.vm.box = "ubuntu/wily64"
     v.vm.network :private_network, ip: "192.168.33.79"
   end
